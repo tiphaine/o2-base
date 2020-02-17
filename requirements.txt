@@ -11,6 +11,7 @@ click
 
 pandas
 requests
+numpy
 
 jupyter
 xlrd
