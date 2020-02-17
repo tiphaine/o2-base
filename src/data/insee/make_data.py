@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 from src.data.insee import source_config
-from src.data.insee.utils import write_excel_file_sheets, write_excel_file
+from src.data.utils import write_excel_file_sheets, write_excel_file
 
 
 def make_population_commune():

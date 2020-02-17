@@ -17,7 +17,6 @@ confiance_data_url = {
     }
 }
 
-
 population_data_raw_file = {
     'commune': {
         '2017': os.path.join(insee_raw, 'insee_population_2017.xls')
