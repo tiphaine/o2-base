@@ -29,9 +29,13 @@ requirements: test_environment
 data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py
 
-## Make Dataset
+## Make Dataset from INSEE
 data_insee:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py insee
+
+## Make Dataset from World Bank
+data_world_bank:
+	$(PYTHON_INTERPRETER) src/data/make_dataset.py world-bank
 
 ## Delete all compiled Python files
 clean:
