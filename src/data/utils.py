@@ -3,6 +3,22 @@ import pandas as pd
 
 
 def download_insee_excel(url, output_file, verbose=False, check=True):
+    """Downloads data from url to an Excel file.
+
+        Args:
+            url (str): An url to request for the excel data.
+            output_file (str): The output excel filepath.
+            verbose (boolean): A verbose indicator.
+            check (boolean): If True, this checks that the url ends with 'xls'
+                or 'xlsx' which is not mandatory.
+
+        Returns:
+            None
+
+        Raises:
+            May raise a ValueError if the url ending does not end with 'xls' or
+        'xlsx'.
+        """
     output_type = url.split('.')[-1]
     if check is True:
         if output_type.lower() not in ('xls', 'xlsx',):
@@ -14,7 +30,6 @@ def download_insee_excel(url, output_file, verbose=False, check=True):
     output.write(resp.content)
     output.close()
     print('File available -> "{}".'.format(output_file))
-    return output_file
 
 
 def write_excel_file(dataframe, output_file):
