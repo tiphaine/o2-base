@@ -3,7 +3,7 @@ import os
 
 from src.data.insee import source_config
 from src.data.utils import write_excel_file_sheets, write_excel_file
-from src.data.config import month_abr_fr_to_number
+from src.data.helpers import month_abr_fr_to_number
 
 from collections import defaultdict
 
