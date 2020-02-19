@@ -11,6 +11,6 @@ forex_data_files = {
     'latest': {
         'zip': os.path.join(ecb_raw, 'ecb_forex_eur_latest.zip'),
         'raw': os.path.join(ecb_raw, 'ecb_forex_eur_latest.csv'),
-        'processed': os.path.join(ecb_processed, 'ecb_forex_eur_latest.xls'),
+        'processed': os.path.join(ecb_processed, ),
     }
 }
