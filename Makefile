@@ -37,6 +37,13 @@ data_insee:
 data_world_bank:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py world-bank
 
+## Make Dataset from World Bank
+data_clean:
+	rm data/raw/insee/*
+	rm data/raw/world-bank/*
+	rm data/processed/insee/*
+	rm data/processed/world-bank/*
+
 ## Delete all compiled Python files
 clean:
 	find . -type f -name "*.py[co]" -delete
