@@ -1,7 +1,11 @@
 import os
 
-insee_raw = os.path.join('data', 'raw')
-insee_processed = os.path.join('data', 'processed')
+insee_raw = os.path.join('data', 'raw', 'insee')
+insee_processed = os.path.join('data', 'processed', 'insee')
+
+world_bank_raw = os.path.join('data', 'raw', 'world-bank')
+world_bank_processed = os.path.join('data', 'processed', 'world-bank')
+
 
 population_data_url = {
     'commune': {
@@ -13,6 +17,24 @@ confiance_data_url = {
     'menage': {
         '2020': {
             1: 'https://www.insee.fr/fr/statistiques/fichier/4295756/les_series_longues.xls'
+        }
+    }
+}
+
+affaires_url = {
+    'batiment': {
+        '2020': {
+            1: 'https://www.insee.fr/fr/statistiques/fichier/4292621/conj_bat_202001_FR.xls'
+        }
+
+    }
+}
+
+affaires_files = {
+    'batiment': {
+        '2020': {
+            'raw': os.path.join(insee_raw, 'insee_affaires_batiment.xls'),
+            'processed': os.path.join(insee_processed, ),
         }
     }
 }
