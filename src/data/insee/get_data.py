@@ -31,3 +31,19 @@ def get_confiance_menages(verbose=False):
     output_file = source_config.confiance_data_raw_file['menage'][latest_year][latest_month]
     download_insee_excel(url, output_file)
 
+
+def get_affaires_batiment(verbose=False):
+    """Gets latest INSEE data about 'climat des affaires / batiment'."""
+    print(">> Downloading INSEE climat des affaires / batiment data...")
+    latest_year = str(max(
+        [int(item) for item in source_config.affaires_url[
+            'batiment'].keys()]))
+    latest_month = max([int(item) for item in source_config.affaires_url[
+            'batiment'][latest_year].keys()])
+    if verbose is True:
+        print('INSEE AFFAIRES BATIMENT / Latest available data is from'
+              ' {}-{}.'.format(latest_year, latest_month))
+    url = source_config.affaires_url['batiment'][latest_year][latest_month]
+    output_file = source_config.affaires_files['batiment'][
+        latest_year]['raw']
+    download_insee_excel(url, output_file)

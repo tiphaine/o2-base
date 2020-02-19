@@ -3,6 +3,9 @@ import os
 
 from src.data.insee import source_config
 from src.data.utils import write_excel_file_sheets, write_excel_file
+from src.data.config import month_abr_fr_to_number
+
+from collections import defaultdict
 
 
 def make_population_commune():
@@ -88,7 +91,6 @@ def make_confiance_menages():
     confiance_raw.columns = raw_cols
     confiance_processed_file_prefix = source_config.confiance_data_processed_file[
         'menage'][latest_year][latest_month]
-    from collections import defaultdict
     res = defaultdict(list)
     for col_name in raw_cols[1:]:
         for index, row in confiance_raw.iterrows():
@@ -97,4 +99,72 @@ def make_confiance_menages():
             res[col_name].append([date_year, date_month, col_name, row[col_name]])
         output_data = pd.DataFrame(res[col_name], columns=['year', 'month', 'indicator_type', 'indicator_value'])
         output_file = os.path.join(confiance_processed_file_prefix, 'insee_confiance_{}.xls'.format(col_name))
+        write_excel_file(output_data, output_file=output_file)
+
+
+def make_climat_affaires_batiment():
+    """
+    Collects and formats climat des affaires / batiment for France (source:
+    INSEE). Reads the information location and outputs in the `source_config.py`
+    file.
+    """
+    print('>> Handling "INSEE Climat des Affaires / Batiment" data for year...')
+    raw_cols = [
+        'date',
+        'retournement',
+        'affaires_batiment_synthetique',
+        'activite_passe',
+        'activite_passe_clientele_publique',
+        'activite_passe_clientele_privee',
+        'activite_passe_logement_neuf',
+        'activite_passe_neuf_hors_logement',
+        'activite_passe_entretien_amelioration',
+        'activite_prevue',
+        'activite_prevue_clientele_publique',
+        'activite_prevue_clientele_privee',
+        'activite_prevue_logement_neuf',
+        'activite_prevue_hors_logement_neuf',
+        'activite_prevue_entretien_amelioration',
+        'jugement_carnet_commande',
+        'carnet_commande_par_mois',
+        'perspective_generale_activite',
+        'tx_utilisation_capa_production',
+        'entreprise_sans_accroiss_production',
+        'entreprise_sans_accroiss_production_insuf_mat',
+        'entreprise_sans_accroiss_production_insuf_pers',
+        'entreprise_sans_accroiss_production_insuf_approv',
+        'entreprise_sans_accroiss_production_cond_climat',
+        'entreprise_difficulte_recrutement',
+        'tendance_effectif_passe',
+        'tendance_effectif_prevu',
+        'evolution_prevue_prix',
+        'situation_tresorerie',
+        'delais_paiement',
+        'delais_paiement_client_public',
+        'delais_paiement_client_prive',
+    ]
+    latest_year = str(max(
+        [int(item) for item in source_config.affaires_files[
+            'batiment'].keys()]))
+    raw_aff_bat_file = source_config.affaires_files['batiment'][latest_year][
+        'raw']
+    print(raw_aff_bat_file)
+    aff_bat_raw = pd.read_excel(raw_aff_bat_file,
+                                sheet_name='Ensemble', skiprows=6)
+    print(aff_bat_raw.shape)
+    aff_bat_raw.columns = raw_cols
+    aff_bat_processed_file_prefix = source_config.affaires_files['batiment'][
+        latest_year]['processed']
+    res = defaultdict(list)
+    for col_name in raw_cols[1:]:
+        for index, row in aff_bat_raw.iterrows():
+            month_raw, date_year = row['date'].split()
+            date_month = month_abr_fr_to_number[month_raw.replace('.', '')]
+            res[col_name].append([date_year, date_month, col_name,
+                                 row[col_name]])
+        output_data = pd.DataFrame(res[col_name], columns=[
+            'year', 'month', 'indicator_type', 'indicator_value'])
+        output_file = os.path.join(
+            aff_bat_processed_file_prefix,
+            'insee_affaires_batiment_{}.xls'.format(col_name))
         write_excel_file(output_data, output_file=output_file)
