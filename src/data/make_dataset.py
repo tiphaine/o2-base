@@ -5,6 +5,8 @@ from src.data.insee.get_data import get_population_commune, get_confiance_menage
 from src.data.insee.make_data import make_population_commune, make_confiance_menages, make_climat_affaires_batiment
 from src.data.world_bank.get_data import get_inflation_country
 from src.data.world_bank.make_data import make_inflation_country
+from src.data.ecb.get_data import get_forex
+from src.data.ecb.make_data import make_forex_euros
 
 
 @click.group()
@@ -32,6 +34,11 @@ def world_bank_inflation():
     make_inflation_country()
 
 
+def ecb_forex():
+    get_forex()
+    make_forex_euros()
+
+
 @cli.command()
 def insee():
     insee_population()
@@ -42,6 +49,11 @@ def insee():
 @cli.command()
 def world_bank():
     world_bank_inflation()
+
+
+@cli.command()
+def ecb():
+    ecb_forex()
 
 
 @cli.command()
