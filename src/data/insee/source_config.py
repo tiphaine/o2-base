@@ -3,10 +3,6 @@ import os
 insee_raw = os.path.join('data', 'raw', 'insee')
 insee_processed = os.path.join('data', 'processed', 'insee')
 
-world_bank_raw = os.path.join('data', 'raw', 'world-bank')
-world_bank_processed = os.path.join('data', 'processed', 'world-bank')
-
-
 population_data_url = {
     'commune': {
         '2017': 'https://www.insee.fr/fr/statistiques/fichier/3698339/base-pop-historiques-1876-2017.xls',
