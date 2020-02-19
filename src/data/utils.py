@@ -19,8 +19,8 @@ def download_insee_excel(url, output_file, verbose=False, check=True):
             May raise a ValueError if the url ending does not end with 'xls' or
         'xlsx'.
         """
-    output_type = url.split('.')[-1]
     if check is True:
+        output_type = url.split('.')[-1]
         if output_type.lower() not in ('xls', 'xlsx',):
             raise ValueError("Wrong file type")
     if verbose is True:
