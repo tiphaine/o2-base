@@ -38,6 +38,10 @@ data_world_bank:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py world-bank
 
 ## Make Dataset from World Bank
+data_ecb:
+	$(PYTHON_INTERPRETER) src/data/make_dataset.py ecb
+
+## Make Dataset from World Bank
 data_clean:
 	rm -f data/raw/insee/*
 	rm -f data/raw/world-bank/*
