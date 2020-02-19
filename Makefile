@@ -39,10 +39,10 @@ data_world_bank:
 
 ## Make Dataset from World Bank
 data_clean:
-	rm data/raw/insee/*
-	rm data/raw/world-bank/*
-	rm data/processed/insee/*
-	rm data/processed/world-bank/*
+	rm -f data/raw/insee/*
+	rm -f data/raw/world-bank/*
+	rm -f data/processed/insee/*
+	rm -f data/processed/world-bank/*
 
 ## Delete all compiled Python files
 clean:
