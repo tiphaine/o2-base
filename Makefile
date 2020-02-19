@@ -45,8 +45,10 @@ data_ecb:
 data_clean:
 	rm -f data/raw/insee/*
 	rm -f data/raw/world-bank/*
+	rm -f data/raw/ecb/*
 	rm -f data/processed/insee/*
 	rm -f data/processed/world-bank/*
+	rm -f data/processed/ecb/*
 
 ## Delete all compiled Python files
 clean:

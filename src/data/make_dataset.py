@@ -6,6 +6,7 @@ from src.data.insee.make_data import make_population_commune, make_confiance_men
 from src.data.world_bank.get_data import get_inflation_country
 from src.data.world_bank.make_data import make_inflation_country
 from src.data.ecb.get_data import get_forex
+from src.data.ecb.make_data import make_forex_euros
 
 
 @click.group()
@@ -35,6 +36,7 @@ def world_bank_inflation():
 
 def ecb_forex():
     get_forex()
+    make_forex_euros()
 
 
 @cli.command()
