@@ -6,6 +6,10 @@ Collection of useful and heterogeneous data.
 ## Usage
 ------------
 
+- All data
+
+```make data_all```
+
 - INSEE data 
 	- population counts
 	- confiance des ménages
