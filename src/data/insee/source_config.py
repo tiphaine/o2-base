@@ -12,7 +12,8 @@ population_data_url = {
 confiance_data_url = {
     'menage': {
         '2020': {
-            1: 'https://www.insee.fr/fr/statistiques/fichier/4295756/les_series_longues.xls'
+            1: 'https://www.insee.fr/fr/statistiques/fichier/4295756/les_series_longues.xls',
+            2: 'https://www.insee.fr/fr/statistiques/fichier/4317593/Camme_202002.xls',
         }
     }
 }
@@ -20,7 +21,8 @@ confiance_data_url = {
 affaires_url = {
     'batiment': {
         '2020': {
-            1: 'https://www.insee.fr/fr/statistiques/fichier/4292621/conj_bat_202001_FR.xls'
+            1: 'https://www.insee.fr/fr/statistiques/fichier/4292621/conj_bat_202001_FR.xls',
+            2: 'https://www.insee.fr/fr/statistiques/fichier/4317274/conj_bat_202002.xls',
         }
 
     }
@@ -44,7 +46,8 @@ population_data_raw_file = {
 confiance_data_raw_file = {
     'menage': {
         '2020': {
-            1: os.path.join(insee_raw, 'insee_confiance_menages_2020-01.xls')
+            1: os.path.join(insee_raw, 'insee_confiance_menages_2020-01.xls'),
+            2: os.path.join(insee_raw, 'insee_confiance_menages_2020-02.xls'),
         }
     }
 }
@@ -61,7 +64,8 @@ population_processed_file = {
 confiance_data_processed_file = {
     'menage': {
         '2020': {
-            1: os.path.join(insee_processed, )
+            1: os.path.join(insee_processed, ),
+            2: os.path.join(insee_processed, ),
         }
     }
 }
