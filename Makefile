@@ -41,6 +41,9 @@ data_world_bank:
 data_ecb:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py ecb
 
+## Download all data
+data_all: data_insee data_world_bank data_ecb
+
 ## Make Dataset from World Bank
 data_clean:
 	rm -f data/raw/insee/*
