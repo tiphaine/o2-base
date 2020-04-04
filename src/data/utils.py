@@ -86,6 +86,7 @@ def download_insee_excel(url, output_file, verbose=False, check=True):
     output.write(resp.content)
     output.close()
     print('File available -> "{}".'.format(output_file))
+    return output_file
 
 
 def write_excel_file(dataframe, output_file):
