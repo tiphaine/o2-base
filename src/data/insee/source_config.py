@@ -63,15 +63,18 @@ couple_famille_menages_files = {
             'processed': os.path.join(insee_processed, ),
         },
         '2014': {
-            'raw': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2014.xls'),
+            'zip': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2014.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-coupl-fam-men-2014.xls'),
             'processed': os.path.join(insee_processed, ),
         },
         '2015': {
-            'raw': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2015.xls'),
+            'zip': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2015.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-coupl-fam-men-2015.xls'),
             'processed': os.path.join(insee_processed, ),
         },
         '2016': {
-            'raw': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2016.xls'),
+            'zip': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2016.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-coupl-fam-men-2016.xls'),
             'processed': os.path.join(insee_processed, ),
         },
     },
