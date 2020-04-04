@@ -8,6 +8,24 @@ from src.data.helpers import month_abr_fr_to_number
 from collections import defaultdict
 
 
+def _insee_format_column_name(col, year):
+    """Formats a raw column name to remove: spaces, year and character with
+    accents.
+
+    Args:
+        col (str): a column name
+        year: the year tu remove
+
+    Returns:
+        (str) The formatted column name.
+
+    """
+    raw_column_name = ('_'.join(col.lower().split()))
+    raw_column_name = raw_column_name.replace('_en_{}_'.format(year), '_')
+    formatted_column_name = raw_column_name.replace('é', 'e')
+    return formatted_column_name
+
+
 def make_population_commune():
     """
     Collects and formats population data for France by commune (source
@@ -168,3 +186,46 @@ def make_climat_affaires_batiment():
             aff_bat_processed_file_prefix,
             'insee_affaires_batiment_{}.xls'.format(col_name))
         write_excel_file(output_data, output_file=output_file)
+
+
+def make_insee_couple_famille_menages(decoupage_geo=None):
+    """
+    Collects and formats 'couple famille menages' data for France (source:
+    INSEE). Reads the information location and outputs in the `source_config.py`
+    file.
+    """
+    if decoupage_geo is None:
+        decoupage_geo = 'commune'
+    for year, file_paths in source_config.couple_famille_menages_files[
+            decoupage_geo].items():
+        raw_cols = []
+        raw_file = file_paths['raw']
+        for item in pd.read_excel(raw_file, skiprows=4).columns:
+            raw_cols.append(_insee_format_column_name(item, year))
+        raw_data = pd.read_excel(raw_file, skiprows=5)
+        raw_data.columns = raw_cols
+        raw_data['year'] = year
+        for col_prefix in ('men', 'pop', 'fam'):
+            col_list = [col for col in raw_cols if col.startswith(col_prefix)]
+            res = defaultdict(list)
+            for col_name in col_list:
+                for index, row in raw_data.iterrows():
+                    res[col_name].append([
+                        row['year'],
+                        row['code_geographique'],
+                        row['region'],
+                        row['departement'],
+                        row['libelle_geographique'],
+                        col_name, row[col_name]])
+                output_data = pd.DataFrame(res[col_name], columns=[
+                    'year', 'code_geographique', 'region', 'departement',
+                    'libelle_geographique', 'indicator_type',
+                    'indicator_value'])
+                couple_famille_menages_processed_file_prefix = \
+                    source_config.couple_famille_menages_files[
+                        decoupage_geo][year]['processed']
+                output_file = os.path.join(
+                    couple_famille_menages_processed_file_prefix,
+                    'insee_couple_famille_menages_commune_{}_{}.xls'.format(
+                        col_name, year))
+                write_excel_file(output_data, output_file=output_file)
