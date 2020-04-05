@@ -22,7 +22,12 @@ Collection of useful and heterogeneous data.
 	- [allocations foyers bas revenus](http://data.caf.fr/dataset/beneficiaire-bas-revenus)
 
     ```make data_caf```
+    
+- LA POSTE data 
+	- [base des codes postaux](https://datanova.legroupe.laposte.fr/explore/dataset/laposte_hexasmal/information/?disjunctive.code_commune_insee&disjunctive.nom_de_la_commune&disjunctive.code_postal&disjunctive.ligne_5)
 
+    ```make data_laposte```
+    
 - World Bank data
 	- [Inflation, consumer prices (annual %)](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG) 
 		
