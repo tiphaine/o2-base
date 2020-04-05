@@ -5,6 +5,8 @@ from src.data.caf.get_data import get_caf_alloc_foyers_bas_revenus
 from src.data.caf.make_data import make_caf_foyers_bas_revenus
 from src.data.insee.get_data import get_population_commune, get_confiance_menages, get_affaires_batiment, get_insee_couple_famille_menages
 from src.data.insee.make_data import make_population_commune, make_confiance_menages, make_climat_affaires_batiment, make_insee_couple_famille_menages
+from src.data.laposte.get_data import get_laposte_base_code_postaux
+from src.data.laposte.make_data import make_laposte_base_code_postaux
 from src.data.world_bank.get_data import get_inflation_country
 from src.data.world_bank.make_data import make_inflation_country
 from src.data.ecb.get_data import get_forex
@@ -41,6 +43,11 @@ def insee_couple_famille_menages():
     make_insee_couple_famille_menages()
 
 
+def laposte_base_code_postaux():
+    get_laposte_base_code_postaux(verbose=True)
+    make_laposte_base_code_postaux()
+
+
 def world_bank_inflation():
     get_inflation_country()
     make_inflation_country()
@@ -72,6 +79,11 @@ def ecb():
 @cli.command()
 def caf():
     caf_alloc_foyers_bas_revenus()
+
+
+@cli.command()
+def laposte():
+    laposte_base_code_postaux()
 
 
 if __name__ == '__main__':

@@ -38,6 +38,10 @@ data_caf:
 data_insee:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py insee
 
+## Make Dataset from La Poste
+data_laposte:
+	$(PYTHON_INTERPRETER) src/data/make_dataset.py laposte
+
 ## Make Dataset from World Bank
 data_world_bank:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py world-bank
@@ -47,7 +51,7 @@ data_ecb:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py ecb
 
 ## Download all data
-data_all: data_insee data_world_bank data_ecb data_caf
+data_all: data_insee data_world_bank data_ecb data_caf data_laposte
 
 ## Make Dataset from World Bank
 data_clean:
