@@ -18,6 +18,11 @@ Collection of useful and heterogeneous data.
 
     ```make data_insee```
 
+- CAF data 
+	- [allocations foyers bas revenus](http://data.caf.fr/dataset/beneficiaire-bas-revenus)
+
+    ```make data_caf```
+
 - World Bank data
 	- [Inflation, consumer prices (annual %)](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG) 
 		
