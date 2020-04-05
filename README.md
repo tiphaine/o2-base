@@ -8,25 +8,26 @@ Collection of useful and heterogeneous data.
 
 - All data
 
-```make data_all```
+    ```make data_all```
 
 - INSEE data 
 	- population counts
 	- confiance des ménages
 	- climat des affaires
+	- couple-famille-menages (France / [ex: 2016](https://www.insee.fr/fr/statistiques/4171359?sommaire=4171370&q=couple+famille+menage))
 
-```make data_insee```
+    ```make data_insee```
 
 - World Bank data
 	- [Inflation, consumer prices (annual %)](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG) 
 		
-```make data_world_bank```
+    ```make data_world_bank```
 
 
 - European Central Bank
 	- [FOREX for Euros/ Euro foreign exchange reference rates](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html) 
 		
-```make data_ecb```
+    ```make data_ecb```
 
 
 ## How to add a new data source

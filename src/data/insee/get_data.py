@@ -1,5 +1,5 @@
 from src.data.insee import source_config
-from src.data.utils import download_insee_excel
+from src.data.utils import download_insee_excel, download_file_from_url, unzip_file
 
 
 def get_population_commune(verbose=False):
@@ -47,3 +47,30 @@ def get_affaires_batiment(verbose=False):
     output_file = source_config.affaires_files['batiment'][
         latest_year]['raw']
     download_insee_excel(url, output_file)
+
+
+def get_insee_couple_famille_menages(decoupage_geo=None, verbose=False):
+    """Gets all INSEE data about 'couple famille menages'."""
+    if decoupage_geo is None:
+        decoupage_geo = 'commune'
+    output_datas = []
+    for year in source_config.couple_famille_menages_url[decoupage_geo].keys():
+        if verbose is True:
+            print('Downloading INSEE couple-famille-menage / commune / '
+                  '{}...'.format(year))
+        input_url = source_config.couple_famille_menages_url[
+            decoupage_geo][year]
+        if decoupage_geo in ('commune',):
+            if input_url.endswith('xls') or input_url.endswith('xlsx'):
+                output_file = source_config.couple_famille_menages_files[
+                    decoupage_geo][year]['raw']
+                output_data = download_insee_excel(input_url, output_file)
+            elif input_url.endswith('zip'):
+                output_file = source_config.couple_famille_menages_files[
+                    decoupage_geo][year]['zip']
+                output_zip = download_file_from_url(input_url, output_file)
+                unzip_file(output_zip, source_config.insee_raw)
+                output_data = source_config.couple_famille_menages_files[
+                    decoupage_geo][year]['raw']
+        output_datas.append(output_data)
+    return output_datas

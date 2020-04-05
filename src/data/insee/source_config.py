@@ -28,6 +28,17 @@ affaires_url = {
     }
 }
 
+couple_famille_menages_url = {
+    'commune': {
+        '2011': 'https://www.insee.fr/fr/statistiques/fichier/2044612/base-cc-coupl-fam-men-2011.xls',
+        '2012': 'https://www.insee.fr/fr/statistiques/fichier/2044618/base-cc-coupl-fam-men-2012.xls',
+        '2013': 'https://www.insee.fr/fr/statistiques/fichier/2044615/base-cc-coupl-fam-men-2013.xls',
+        '2014': 'https://www.insee.fr/fr/statistiques/fichier/2862009/base-cc-coupl-fam-men-2014.zip',
+        '2015': 'https://www.insee.fr/fr/statistiques/fichier/3565598/base-cc-coupl-fam-men-2015.zip',
+        '2016': 'https://www.insee.fr/fr/statistiques/fichier/4171359/base-cc-coupl-fam-men-2016-xls.zip',
+    },
+}
+
 affaires_files = {
     'batiment': {
         '2020': {
@@ -35,6 +46,38 @@ affaires_files = {
             'processed': os.path.join(insee_processed, ),
         }
     }
+}
+
+couple_famille_menages_files = {
+    'commune': {
+        '2011': {
+            'raw': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2011.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2012': {
+            'raw': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2012.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2013': {
+            'raw': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2013.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2014': {
+            'zip': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2014.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-coupl-fam-men-2014.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2015': {
+            'zip': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2015.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-coupl-fam-men-2015.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2016': {
+            'zip': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2016.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-coupl-fam-men-2016.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+    },
 }
 
 population_data_raw_file = {

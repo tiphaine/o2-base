@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import click
 
-from src.data.insee.get_data import get_population_commune, get_confiance_menages, get_affaires_batiment
-from src.data.insee.make_data import make_population_commune, make_confiance_menages, make_climat_affaires_batiment
+from src.data.insee.get_data import get_population_commune, get_confiance_menages, get_affaires_batiment, get_insee_couple_famille_menages
+from src.data.insee.make_data import make_population_commune, make_confiance_menages, make_climat_affaires_batiment, make_insee_couple_famille_menages
 from src.data.world_bank.get_data import get_inflation_country
 from src.data.world_bank.make_data import make_inflation_country
 from src.data.ecb.get_data import get_forex
@@ -29,6 +29,11 @@ def insee_affaires_batiment():
     make_climat_affaires_batiment()
 
 
+def insee_couple_famille_menages():
+    get_insee_couple_famille_menages(verbose=True)
+    make_insee_couple_famille_menages()
+
+
 def world_bank_inflation():
     get_inflation_country()
     make_inflation_country()
@@ -44,6 +49,7 @@ def insee():
     insee_population()
     insee_confiance_menage()
     insee_affaires_batiment()
+    insee_couple_famille_menages()
 
 
 @cli.command()
