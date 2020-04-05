@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import click
 
+from src.data.caf.get_data import get_caf_alloc_foyers_bas_revenus
+from src.data.caf.make_data import make_caf_foyers_bas_revenus
 from src.data.insee.get_data import get_population_commune, get_confiance_menages, get_affaires_batiment, get_insee_couple_famille_menages
 from src.data.insee.make_data import make_population_commune, make_confiance_menages, make_climat_affaires_batiment, make_insee_couple_famille_menages
 from src.data.world_bank.get_data import get_inflation_country
@@ -12,6 +14,11 @@ from src.data.ecb.make_data import make_forex_euros
 @click.group()
 def cli():
     pass
+
+
+def caf_alloc_foyers_bas_revenus():
+    get_caf_alloc_foyers_bas_revenus(verbose=True)
+    make_caf_foyers_bas_revenus()
 
 
 def insee_population():
@@ -64,7 +71,7 @@ def ecb():
 
 @cli.command()
 def caf():
-    insee_population()
+    caf_alloc_foyers_bas_revenus()
 
 
 if __name__ == '__main__':
