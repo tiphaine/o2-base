@@ -132,3 +132,22 @@ def write_excel_file_sheets(dataframes, output_file):
     writer.save()
     writer.close()
     print('Data written in "{}"'.format(output_file))
+
+
+def write_csv_file(dataframe, output_file):
+    """Writes data from dataframe in the Excel file.
+
+    Args:
+        dataframe (pandas dataframe): A dataframe.
+        output_file (str): The output excel filepath.
+
+    Returns:
+        None
+
+    Raises:
+        ValueError if the output file is not an Excel file.
+    """
+    if output_file.split('.')[-1] not in ('csv', ):
+        raise ValueError('Wrong output file type.')
+    dataframe.to_csv(output_file, index=False)
+    print('Data written in "{}'.format(output_file))
