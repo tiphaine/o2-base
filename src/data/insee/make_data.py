@@ -229,3 +229,53 @@ def make_insee_couple_famille_menages(decoupage_geo=None):
                     'insee_couple_famille_menages_commune_{}_{}.xls'.format(
                         col_name, year))
                 write_excel_file(output_data, output_file=output_file)
+
+
+def make_insee_diplome_formation(decoupage_geo=None):
+    """
+    Collects and formats 'diplome formation' data for France (source:
+    INSEE). Reads the information location and outputs in the `source_config.py`
+    file.
+    """
+    if decoupage_geo is None:
+        decoupage_geo = 'commune'
+    output_files = {}
+    print('>> Handling "INSEE diplome formation" data for year...')
+    for year, file_paths in source_config.diplome_formation_files[
+            decoupage_geo].items():
+        print('\t- {}'.format(year))
+        output_files[year] = {}
+        raw_cols = []
+        raw_file = file_paths['raw']
+        for item in pd.read_excel(raw_file, skiprows=4).columns:
+            raw_cols.append(_insee_format_column_name(item, year))
+        raw_data = pd.read_excel(raw_file, skiprows=5)
+        raw_data.columns = raw_cols
+        raw_data['year'] = year
+        for col_prefix in ('pop', 'hommes', 'femmes'):
+            col_list = [col for col in raw_cols if col.startswith(col_prefix)]
+            res = defaultdict(list)
+            res[col_prefix].append(
+                ['year', 'code_geographique', 'region', 'departement',
+                 'libelle_geographique'] + col_list)
+            for index, row in raw_data.iterrows():
+                line_base = [
+                        row['year'],
+                        row['code_geographique'],
+                        row['region'],
+                        row['departement'],
+                        row['libelle_geographique'],]
+                for col_name in col_list:
+                    line_base.append(row[col_name])
+                res[col_prefix].append(line_base)
+            output_data = pd.DataFrame(res[col_prefix][1:],
+                                       columns=res[col_prefix][0])
+            diplome_formation_files_prefix = source_config.diplome_formation_files[
+                decoupage_geo][year]['processed']
+            output_file = os.path.join(
+                diplome_formation_files_prefix,
+                'insee_diplome_formation_{}_commune_{}.xls'.format(
+                    col_prefix, year))
+            write_excel_file(output_data, output_file=output_file)
+            output_files[year][col_prefix] = output_file
+    return output_files
