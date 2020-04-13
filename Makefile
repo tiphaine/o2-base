@@ -42,6 +42,10 @@ data_insee:
 data_laposte:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py laposte
 
+## Make Dataset for IDH2
+data_idh2:
+	$(PYTHON_INTERPRETER) src/data/make_dataset.py idh2
+
 ## Make Dataset from World Bank
 data_world_bank:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py world-bank
