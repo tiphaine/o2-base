@@ -74,3 +74,24 @@ def get_insee_couple_famille_menages(decoupage_geo=None, verbose=False):
                     decoupage_geo][year]['raw']
         output_datas.append(output_data)
     return output_datas
+
+
+def get_insee_diplome_formation(decoupage_geo=None, verbose=False):
+    """Gets all INSEE data about 'diplome formation'."""
+    if decoupage_geo is None:
+        decoupage_geo = 'commune'
+    output_datas = []
+    for year in source_config.diplome_formations_url[decoupage_geo].keys():
+        if verbose is True:
+            print('Downloading INSEE diplome-formation / commune / {}...'.format(year))
+        input_url = source_config.diplome_formations_url[decoupage_geo][year]
+        if decoupage_geo in ('commune',):
+            if input_url.endswith('xls') or input_url.endswith('xlsx'):
+                output_path = source_config.diplome_formation_files[decoupage_geo][year]['raw']
+                output_data = download_insee_excel(input_url, output_path)
+            elif input_url.endswith('zip'):
+                output_path = source_config.diplome_formation_files[decoupage_geo][year]['zip']
+                output_zip = download_file_from_url(input_url, output_path)
+                unzip_file(output_zip, source_config.insee_raw)
+                output_data = source_config.diplome_formation_files[decoupage_geo][year]['raw']
+        output_datas.append(output_data)

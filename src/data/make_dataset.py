@@ -5,8 +5,13 @@ from src.data.caf.get_data import get_caf_alloc_foyers_bas_revenus
 from src.data.caf.make_data import make_caf_foyers_bas_revenus
 from src.data.divers.get_data import get_divers_idh2_ile_de_france
 from src.data.divers.make_data import make_divers_idh2_ile_de_france
-from src.data.insee.get_data import get_population_commune, get_confiance_menages, get_affaires_batiment, get_insee_couple_famille_menages
-from src.data.insee.make_data import make_population_commune, make_confiance_menages, make_climat_affaires_batiment, make_insee_couple_famille_menages
+from src.data.insee.get_data import get_population_commune, \
+    get_confiance_menages, get_affaires_batiment, \
+    get_insee_couple_famille_menages, \
+    get_insee_diplome_formation
+from src.data.insee.make_data import make_population_commune, \
+    make_confiance_menages, make_climat_affaires_batiment, \
+    make_insee_couple_famille_menages, make_insee_diplome_formation
 from src.data.laposte.get_data import get_laposte_base_code_postaux
 from src.data.laposte.make_data import make_laposte_base_code_postaux
 from src.data.world_bank.get_data import get_inflation_country
@@ -45,6 +50,11 @@ def insee_couple_famille_menages():
     make_insee_couple_famille_menages()
 
 
+def insee_diplome_formation():
+    get_insee_diplome_formation(verbose=True)
+    make_insee_diplome_formation()
+
+
 def laposte_base_code_postaux():
     get_laposte_base_code_postaux(verbose=True)
     make_laposte_base_code_postaux()
@@ -71,6 +81,7 @@ def insee():
     insee_confiance_menage()
     insee_affaires_batiment()
     insee_couple_famille_menages()
+    insee_diplome_formation()
 
 
 @cli.command()

@@ -15,7 +15,8 @@ Collection of useful and heterogeneous data.
 	- confiance des ménages
 	- climat des affaires
 	- couple-famille-menages (France / [ex: 2016](https://www.insee.fr/fr/statistiques/4171359?sommaire=4171370&q=couple+famille+menage))
-
+	- diplome-formation (France / [ex: 2016](https://www.insee.fr/fr/statistiques/4171395?sommaire=4171407))
+	
     ```make data_insee```
 
 - CAF data 

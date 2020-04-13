@@ -39,6 +39,18 @@ couple_famille_menages_url = {
     },
 }
 
+diplome_formations_url = {
+    'commune': {
+        '2010': 'https://www.insee.fr/fr/statistiques/fichier/2044702/base-cc-diplomes-formation-2010.zip',
+        '2011': 'https://www.insee.fr/fr/statistiques/fichier/2044704/base-cc-diplomes-formation_2011.xls',
+        '2012': 'https://www.insee.fr/fr/statistiques/fichier/2044707/base-cc-diplomes-formation_2012.zip',
+        '2013': 'https://www.insee.fr/fr/statistiques/fichier/2044692/base-cc-diplomes-formation-2013_v2.xls',
+        '2014': 'https://www.insee.fr/fr/statistiques/fichier/2862015/base-cc-dipl-formation-2014.zip',
+        '2015': 'https://www.insee.fr/fr/statistiques/fichier/3564182/base-cc-dipl-formation-2015.zip',
+        '2016': 'https://www.insee.fr/fr/statistiques/fichier/4171395/base-cc-dipl-formation-2016-xls.zip',
+    },
+}
+
 affaires_files = {
     'batiment': {
         '2020': {
@@ -75,6 +87,44 @@ couple_famille_menages_files = {
         '2016': {
             'zip': os.path.join(insee_raw, 'base-ic-couples-familles-menages-communes-2016.zip'),
             'raw': os.path.join(insee_raw, 'base-cc-coupl-fam-men-2016.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+    },
+}
+
+diplome_formation_files = {
+    'commune': {
+        '2010': {
+            'zip': os.path.join(insee_raw, 'base-cc-diplomes-formation-communes-2010.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-diplomes-formation-2010.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2011': {
+            'raw': os.path.join(insee_raw, 'base-cc-diplomes-formation-2011.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2012': {
+            'zip': os.path.join(insee_raw, 'base-cc-diplomes-formation-communes-2012.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-diplomes-formation_2012.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2013': {
+            'raw': os.path.join(insee_raw, 'base-cc-diplomes-formation-2013.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2014': {
+            'zip': os.path.join(insee_raw, 'base-cc-diplomes-formation-communes-2014.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-diplomes-formation-2014.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2015': {
+            'zip': os.path.join(insee_raw, 'base-cc-diplomes-formation-communes-2015.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-diplomes-formation-2015.xls'),
+            'processed': os.path.join(insee_processed, ),
+        },
+        '2016': {
+            'zip': os.path.join(insee_raw, 'base-cc-diplomes-formation-communes-2016.zip'),
+            'raw': os.path.join(insee_raw, 'base-cc-diplomes-formation-2016.xls'),
             'processed': os.path.join(insee_processed, ),
         },
     },
