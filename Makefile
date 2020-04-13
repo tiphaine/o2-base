@@ -46,7 +46,7 @@ data_laposte:
 data_world_bank:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py world-bank
 
-## Make Dataset from World Bank
+## Make Dataset from European Central Bank
 data_ecb:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py ecb
 
