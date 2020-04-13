@@ -3,6 +3,8 @@ import click
 
 from src.data.caf.get_data import get_caf_alloc_foyers_bas_revenus
 from src.data.caf.make_data import make_caf_foyers_bas_revenus
+from src.data.divers.get_data import get_divers_idh2_ile_de_france
+from src.data.divers.make_data import make_divers_idh2_ile_de_france
 from src.data.insee.get_data import get_population_commune, get_confiance_menages, get_affaires_batiment, get_insee_couple_famille_menages
 from src.data.insee.make_data import make_population_commune, make_confiance_menages, make_climat_affaires_batiment, make_insee_couple_famille_menages
 from src.data.laposte.get_data import get_laposte_base_code_postaux
@@ -48,6 +50,11 @@ def laposte_base_code_postaux():
     make_laposte_base_code_postaux()
 
 
+def divers_idh2_idf():
+    get_divers_idh2_ile_de_france(verbose=True)
+    make_divers_idh2_ile_de_france()
+
+
 def world_bank_inflation():
     get_inflation_country()
     make_inflation_country()
@@ -84,6 +91,11 @@ def caf():
 @cli.command()
 def laposte():
     laposte_base_code_postaux()
+
+
+@cli.command()
+def idh2():
+    divers_idh2_idf()
 
 
 if __name__ == '__main__':
