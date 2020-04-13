@@ -28,6 +28,11 @@ Collection of useful and heterogeneous data.
 
     ```make data_laposte```
     
+- Miscellaneous data
+    - [IDH2 en Ile de France](https://data-iau-idf.opendata.arcgis.com/datasets/indice-de-d%C3%A9veloppement-humain-idh2-des-communes-d%C3%AEle-de-france)
+    
+    ```make data_misc```
+    
 - World Bank data
 	- [Inflation, consumer prices (annual %)](https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG) 
 		
