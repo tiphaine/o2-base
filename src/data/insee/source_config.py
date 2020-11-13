@@ -14,6 +14,7 @@ confiance_data_url = {
         '2020': {
             1: 'https://www.insee.fr/fr/statistiques/fichier/4295756/les_series_longues.xls',
             2: 'https://www.insee.fr/fr/statistiques/fichier/4317593/Camme_202002.xls',
+            10: 'https://www.insee.fr/fr/statistiques/fichier/4922879/Camme_202010.xls',
         }
     }
 }
