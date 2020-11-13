@@ -24,6 +24,7 @@ affaires_url = {
         '2020': {
             1: 'https://www.insee.fr/fr/statistiques/fichier/4292621/conj_bat_202001_FR.xls',
             2: 'https://www.insee.fr/fr/statistiques/fichier/4317274/conj_bat_202002.xls',
+            10: 'https://www.insee.fr/fr/statistiques/fichier/4809290/ACTI_202010.xls',
         }
 
     }
