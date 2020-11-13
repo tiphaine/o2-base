@@ -1,7 +1,7 @@
 import os
 
-from src.data.ecb import source_config
-from src.data.utils import download_file_from_url, unzip_file, rename_file
+from ecb import source_config
+from utils import download_file_from_url, unzip_file, rename_file
 
 
 def get_forex():

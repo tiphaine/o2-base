@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from src.data.world_bank import source_config
-from src.data.utils import write_excel_file
+from world_bank import source_config
+from utils import write_excel_file
 
 
 def make_inflation_country():

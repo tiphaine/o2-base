@@ -1,5 +1,5 @@
-from src.data.laposte import source_config
-from src.data.utils import download_file_from_url
+from laposte import source_config
+from utils import download_file_from_url
 
 
 def get_laposte_base_code_postaux(verbose=False):

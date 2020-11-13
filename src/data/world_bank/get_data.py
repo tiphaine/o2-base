@@ -1,5 +1,5 @@
-from src.data.world_bank import source_config
-from src.data.utils import download_insee_excel
+from world_bank import source_config
+from utils import download_insee_excel
 
 
 def get_inflation_country():

@@ -1,5 +1,5 @@
-from src.data.divers import source_config
-from src.data.utils import download_file_from_url
+from divers import source_config
+from utils import download_file_from_url
 
 
 def get_divers_idh2_ile_de_france(decoupage_geo=None, verbose=False):

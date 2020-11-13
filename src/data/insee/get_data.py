@@ -1,5 +1,5 @@
-from src.data.insee import source_config
-from src.data.utils import download_insee_excel, download_file_from_url, unzip_file
+from insee import source_config
+from utils import download_insee_excel, download_file_from_url, unzip_file
 
 
 def get_population_commune(verbose=False):

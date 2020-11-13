@@ -1,7 +1,7 @@
 import pandas as pd
 
-from src.data.caf import source_config
-from src.data.utils import write_csv_file
+from caf import source_config
+from utils import write_csv_file
 
 
 def _get_year(p):

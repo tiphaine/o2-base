@@ -1,5 +1,5 @@
-from src.data.caf import source_config
-from src.data.utils import download_file_from_url
+from caf import source_config
+from utils import download_file_from_url
 
 
 def get_caf_alloc_foyers_bas_revenus(decoupage_geo=None, verbose=False):

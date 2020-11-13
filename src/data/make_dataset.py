@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 import click
 
-from src.data.caf.get_data import get_caf_alloc_foyers_bas_revenus
-from src.data.caf.make_data import make_caf_foyers_bas_revenus
-from src.data.divers.get_data import get_divers_idh2_ile_de_france
-from src.data.divers.make_data import make_divers_idh2_ile_de_france
-from src.data.insee.get_data import get_population_commune, \
+from caf.get_data import get_caf_alloc_foyers_bas_revenus
+from caf.make_data import make_caf_foyers_bas_revenus
+from divers.get_data import get_divers_idh2_ile_de_france
+from divers.make_data import make_divers_idh2_ile_de_france
+from insee.get_data import get_population_commune, \
     get_confiance_menages, get_affaires_batiment, \
     get_insee_couple_famille_menages, \
     get_insee_diplome_formation
-from src.data.insee.make_data import make_population_commune, \
+from insee.make_data import make_population_commune, \
     make_confiance_menages, make_climat_affaires_batiment, \
     make_insee_couple_famille_menages, make_insee_diplome_formation
-from src.data.laposte.get_data import get_laposte_base_code_postaux
-from src.data.laposte.make_data import make_laposte_base_code_postaux
-from src.data.world_bank.get_data import get_inflation_country
-from src.data.world_bank.make_data import make_inflation_country
-from src.data.ecb.get_data import get_forex
-from src.data.ecb.make_data import make_forex_euros
+from laposte.get_data import get_laposte_base_code_postaux
+from laposte.make_data import make_laposte_base_code_postaux
+from world_bank.get_data import get_inflation_country
+from world_bank.make_data import make_inflation_country
+from ecb.get_data import get_forex
+from ecb.make_data import make_forex_euros
 
 
 @click.group()

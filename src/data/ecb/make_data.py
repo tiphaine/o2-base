@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-from src.data.ecb import source_config
-from src.data.utils import write_excel_file
+from ecb import source_config
+from utils import write_excel_file
 
 
 def make_forex_euros():

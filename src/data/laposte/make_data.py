@@ -1,7 +1,7 @@
 import pandas as pd
 
-from src.data.laposte import source_config
-from src.data.utils import write_csv_file
+from laposte import source_config
+from utils import write_csv_file
 
 
 def _format_column_name(raw_column_name, year=None):

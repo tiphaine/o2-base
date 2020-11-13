@@ -1,7 +1,7 @@
 import pandas as pd
 
-from src.data.divers import source_config
-from src.data.utils import write_csv_file
+from divers import source_config
+from utils import write_csv_file
 
 
 def make_divers_idh2_ile_de_france(decoupage_geo=None):
