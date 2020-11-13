@@ -143,6 +143,7 @@ confiance_data_raw_file = {
         '2020': {
             1: os.path.join(insee_raw, 'insee_confiance_menages_2020-01.xls'),
             2: os.path.join(insee_raw, 'insee_confiance_menages_2020-02.xls'),
+            10: os.path.join(insee_raw, 'insee_confiance_menages_2020-10.xls'),
         }
     }
 }
@@ -161,6 +162,7 @@ confiance_data_processed_file = {
         '2020': {
             1: os.path.join(insee_processed, ),
             2: os.path.join(insee_processed, ),
+            10: os.path.join(insee_processed, ),
         }
     }
 }
